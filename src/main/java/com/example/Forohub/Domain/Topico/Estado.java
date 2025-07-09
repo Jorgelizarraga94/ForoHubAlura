@@ -1,4 +1,4 @@
-package com.example.Forohub.Model.Topico;
+package com.example.Forohub.Domain.Topico;
 
 public enum Estado {
     NUEVO,

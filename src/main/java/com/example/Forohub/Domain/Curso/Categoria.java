@@ -1,4 +1,4 @@
-package com.example.Forohub.Model.Curso;
+package com.example.Forohub.Domain.Curso;
 
 public enum Categoria {
     PROGRAMACION,

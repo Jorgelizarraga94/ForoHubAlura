@@ -1,13 +1,13 @@
-package com.example.Forohub.Model.Topico;
+package com.example.Forohub.Domain.Topico;
 
-import com.example.Forohub.Model.Curso.Curso;
+import com.example.Forohub.Domain.Curso.Curso;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 
-@Table(schema = "topicos")
+@Table(name = "topicos")
 @Entity(name= "topico")
 @EqualsAndHashCode(of = "id")
 public class Topico {
@@ -16,7 +16,7 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensaje;
-    private LocalDateTime fechaCreacion;
+    private LocalDateTime fecha_creacion;
     @Enumerated(EnumType.STRING)
     private Estado estado;
     private String autor;
@@ -24,15 +24,12 @@ public class Topico {
     @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    public Topico(@Valid DatosRegistroTopico datosTopico) {
-        this.id = id;
-        this.titulo = datosTopico.titulo();
-        this.mensaje = datosTopico.mensaje();
-        this.fechaCreacion = LocalDateTime.now();
+    public Topico(String titulo, String mensaje, String autor, Curso curso) {
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.fecha_creacion = LocalDateTime.now();
         this.estado = Estado.NUEVO;
-        this.autor = datosTopico.autor();
-        this.curso = datosTopico.curso();
+        this.autor = autor;
+        this.curso = curso;
     }
-
-
 }
