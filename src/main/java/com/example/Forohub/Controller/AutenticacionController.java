@@ -5,7 +5,6 @@ import com.example.Forohub.Domain.Usuario.Usuario;
 import com.example.Forohub.Infra.Security.DatosTokenJwt;
 import com.example.Forohub.Infra.Security.TokenService;
 import jakarta.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

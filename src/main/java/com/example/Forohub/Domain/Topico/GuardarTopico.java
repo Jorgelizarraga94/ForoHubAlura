@@ -1,6 +1,4 @@
 package com.example.Forohub.Domain.Topico;
-
-import com.example.Forohub.Domain.Curso.Curso;
 import com.example.Forohub.Domain.Curso.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

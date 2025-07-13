@@ -1,16 +1,10 @@
 package com.example.Forohub.Controller;
-
 import com.example.Forohub.Domain.Topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,19 +23,14 @@ public class TopicoController {
     }
 
     @GetMapping
-    public void mostrarTopicos(){
-        List<Topico> listaTopicos = topicoRepository.findAll();
-        for (Topico topico : listaTopicos){
-            System.out.println(topico.toString());
-        }
+    public List<Topico> mostrarTopicos(){
+        return topicoRepository.findAll();
     }
 
 
     @GetMapping("/{id}")
-    public String mostrarTopicoPorId(@PathVariable Long id){
-        Topico topico = topicoRepository.getReferenceById(id);
-        System.out.println(topico.toString());
-        return topico.toString() ;
+    public Topico mostrarTopicoPorId(@PathVariable Long id){
+        return topicoRepository.getReferenceById(id);
     }
 
     @Transactional
@@ -58,9 +47,8 @@ public class TopicoController {
     @Transactional
     @PutMapping("/{id}")
     public ResponseEntity actualizarTopico(@PathVariable @Valid Long id,@RequestBody DatosActualizacionTopico datosActualizacion){
-        Topico topico = topicoRepository.getReferenceById(id);
-        topico.actualizarTopico(datosActualizacion);
-
-        return ResponseEntity.ok(new DatosActualizacionTopico(topico));
+            Topico topico = topicoRepository.getReferenceById(id);
+            topico.actualizarTopico(datosActualizacion);
+            return ResponseEntity.ok(new DatosActualizacionTopico(topico));
     }
 }

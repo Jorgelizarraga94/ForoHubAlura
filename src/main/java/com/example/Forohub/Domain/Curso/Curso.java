@@ -1,9 +1,11 @@
 package com.example.Forohub.Domain.Curso;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Table(name = "cursos")
 @Entity(name= "curso")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

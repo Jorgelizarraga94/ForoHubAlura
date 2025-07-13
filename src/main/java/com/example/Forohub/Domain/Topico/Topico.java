@@ -1,8 +1,8 @@
 package com.example.Forohub.Domain.Topico;
 
 import com.example.Forohub.Domain.Curso.Curso;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Table(name = "topicos")
 @Entity(name= "topico")
 @EqualsAndHashCode(of = "id")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Topico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
