@@ -16,6 +16,7 @@ public class TopicoController {
     private GuardarTopico guardar;
     @Transactional
     @PostMapping
+
     public void crearTopico(@RequestBody @Valid DatosRegistroTopico datosTopico){
         Topico dato = guardar.guardar(datosTopico);
         System.out.println(dato);
